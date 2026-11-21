@@ -70,6 +70,13 @@ h2 { max-width: 720px; margin: 11px 0 0; font-size: clamp(30px, 4.3vw, 46px); li
 .card-index { color: #7e9383; font: 12px var(--mono); }
 h3 { margin: 19px 0 8px; font-size: 22px; line-height: 1.25; letter-spacing: -.04em; font-weight: 650; }
 .project-card p { max-width: 510px; margin: 0 0 18px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.toolkit-section { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(280px,.8fr); align-items: center; gap: 58px; }
+.toolkit-copy > p:not(.overline):not(.provenance-note) { max-width: 670px; color: var(--muted); font-size: 14px; }
+.toolkit-list { padding-left: 20px; color: var(--muted); font-size: 13px; }
+.toolkit-list li { padding: 5px 0; }
+.toolkit-terminal { padding: 21px; border: 1px solid #3d5650; border-radius: 13px; background: linear-gradient(150deg, #1c2d2c, #131f21); }
+.toolkit-terminal pre { overflow-x: auto; margin: 17px 0 13px; color: #e2efda; font: 12px/1.8 var(--mono); }
+.toolkit-terminal p:last-child { margin: 0; color: var(--soft); font-size: 11px; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; margin-bottom: 17px; }
 .tags span { padding: 3px 8px; border: 1px solid #304643; border-radius: 5px; color: #b6c9bc; font: 10px var(--mono); }
 .card-links { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
@@ -103,7 +110,7 @@ footer { display: flex; justify-content: space-between; gap: 24px; padding: 23px
   .section { padding: 69px 0 72px; }
   .section-heading { display: block; }
   .small-intro { margin-top: 13px; }
-  .approach-section, .about-section { grid-template-columns: 1fr; gap: 24px; }
+  .approach-section, .about-section, .toolkit-section { grid-template-columns: 1fr; gap: 24px; }
 }
 @media (max-width: 560px) {
   .shell { padding: 0 17px; }

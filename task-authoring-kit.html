@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An open-source Python kit for scaffolding and preflighting coding evaluation tasks, with a complete example and review templates.">
+  <meta name="theme-color" content="#101b1e">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Coding Evaluation Task Authoring Kit — Jay Krukar">
+  <meta property="og:description" content="A working task scaffold, reference/starter preflight, review checklists, and a downloadable bundle.">
+  <meta property="og:url" content="https://jaykrukar.github.io/portfolio-site/task-authoring-kit.html">
+  <meta name="twitter:card" content="summary">
+  <title>Coding Evaluation Task Authoring Kit — Jay Krukar</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://jaykrukar.github.io/portfolio-site/task-authoring-kit.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">J</span><span>Jay Krukar</span></a>
+      <div class="nav-links">
+        <a href="index.html#work">Selected work</a>
+        <a href="index.html#toolkit">Toolkit</a>
+        <a href="case-study-repoeval.html">RepoEval case study</a>
+      </div>
+    </nav>
+
+    <header class="case-hero">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> PRODUCT / DEVELOPER TOOLING</p>
+      <h1>Coding Evaluation <em>Task Kit</em></h1>
+      <p class="lede">A practical, downloadable workflow for creating small Python coding tasks: write the contract, build an external verifier, check a reference and starter, then hand the package to a human reviewer.</p>
+      <div class="case-meta"><span>Python 3.10+</span><span>pytest</span><span>MIT + CC BY 4.0</span><span>Open-source learning project</span></div>
+      <p class="scope-banner"><strong>Scope:</strong> The included audit checks package structure and known solution outcomes. It does not judge fairness, human solvability, test completeness, benchmark value, or security.</p>
+      <div class="cta-group">
+        <a class="button primary" href="https://github.com/jaykrukar/repoeval-lab/archive/refs/heads/main.zip">Download the source ZIP <span aria-hidden="true">↓</span></a>
+        <a class="button secondary" href="https://github.com/jaykrukar/repoeval-lab">Inspect the source <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="main" class="case-main">
+      <section class="case-section" aria-labelledby="question-title">
+        <p class="overline">01 / USER PROBLEM</p>
+        <h2 id="question-title">A prompt and a passing reference are not enough.</h2>
+        <p>A task author needs to know whether the brief, tests, and example implementations agree. The kit turns those checks into a repeatable local workflow while leaving subjective judgments with a human reviewer.</p>
+        <div class="flow" role="img" aria-label="Task brief and contract lead to an external verifier, then reference and starter runs, then human review">
+          <div class="flow-step"><span>01 / DEFINE</span><strong>Task brief</strong><small>Inputs, outputs, edge behavior, and examples</small></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>02 / CHECK</span><strong>External tests</strong><small>Assertions derived from the written contract</small></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>03 / PREFLIGHT</span><strong>Known outcomes</strong><small>Reference passes; incomplete starter is rejected</small></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>04 / REVIEW</span><strong>Human judgment</strong><small>Clarity, alternatives, fairness, and scope</small></div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="included-title">
+        <p class="overline">02 / WHAT'S INCLUDED</p>
+        <h2 id="included-title">A working tool and reusable materials.</h2>
+        <div class="case-grid">
+          <article class="case-card"><h3>Task scaffolding</h3><p><code>repoeval init</code> creates a task brief, manifest, external tests, starter implementation, and passing reference without overwriting an existing destination.</p></article>
+          <article class="case-card"><h3>Known-outcome audit</h3><p><code>repoeval audit</code> runs the included verifier against the reference and starter, then emits a JSON or human-readable preflight report.</p></article>
+          <article class="case-card"><h3>Review templates</h3><p>The bundle includes an editable task brief, test matrix, verifier review checklist, and evidence-based manual scorecard.</p></article>
+          <article class="case-card"><h3>Worked example</h3><p>The tag-normalization example documents the contract and includes 18 test cases covering normal input, boundaries, punctuation, whitespace, and type errors.</p></article>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="results-title">
+        <p class="overline">03 / VERIFIED RUN</p>
+        <h2 id="results-title">The included example passes the intended preflight.</h2>
+        <p>On the checked build, the reference implementation passed all 18 cases. The starter was rejected on 10 of 18 cases. The full repository suite passed 21 tests, the generated ZIP passed its archive integrity check, and an extracted copy built and installed as a wheel before its installed CLI created and audited a fresh task.</p>
+        <div class="result-strip">
+          <div><span class="result-value">18 / 18</span><span class="result-label">reference test cases passed</span></div>
+          <div><span class="result-value">10 / 18</span><span class="result-label">starter cases failed as expected</span></div>
+          <div><span class="result-value">21 passed</span><span class="result-label">repository tests passed</span></div>
+        </div>
+        <p class="source-note">These are local reproducibility checks for this specific sample. They do not establish broader correctness or market demand. <a href="https://github.com/jaykrukar/repoeval-lab/blob/main/products/task-authoring-kit/example/manifest.json">Read the sample manifest</a> · <a href="https://github.com/jaykrukar/repoeval-lab/actions">View repository CI</a></p>
+      </section>
+
+      <section class="case-section" aria-labelledby="limits-title">
+        <p class="overline">04 / LIMITS AND DISTRIBUTION</p>
+        <h2 id="limits-title">The preflight is deliberately narrow.</h2>
+        <ul class="case-list">
+          <li>Passing proves only that this reference passes the included tests and the included starter does not.</li>
+          <li>A syntax error or setup issue can make a starter fail without showing that the verifier catches the intended behavior; inspect the failures.</li>
+          <li>The runner executes Python and pytest. It is not a security sandbox; a timeout does not block filesystem, network, or resource access.</li>
+          <li>The guide and blank templates use CC BY 4.0; source and worked code use MIT. License notices are included in the bundle.</li>
+          <li>The bundle is an open-source product experiment. No checkout, paid listing, customer, or sales results are represented here.</li>
+        </ul>
+        <p class="source-note">The curated product ZIP is built deterministically with <code>python tools/build_authoring_kit.py</code>. The repository also includes a draft listing and lightweight market notes; no price or demand claim is made on this site.</p>
+      </section>
+
+      <div class="case-footer-links">
+        <a class="repo-link" href="index.html#toolkit">← Back to the toolkit section</a>
+        <a class="repo-link" href="case-study-repoeval.html">Read the RepoEval case study →</a>
+      </div>
+    </main>
+    <footer><span>© <span id="year">2026</span> Jay Krukar</span><span>Built with HTML, CSS, and JavaScript · No client or patient data</span></footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

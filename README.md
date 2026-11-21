@@ -1,6 +1,6 @@
 # Portfolio Site
 
-A static portfolio built with HTML, CSS, and JavaScript. It includes filterable project cards, two detailed technical case studies, responsive layouts, keyboard focus states, reduced-motion support, metadata, and a sitemap. There is no build step or third-party runtime dependency.
+A static portfolio built with HTML, CSS, and JavaScript. It includes filterable project cards, three detailed project/toolkit pages, a reproducible downloadable Python authoring kit, responsive layouts, keyboard focus states, reduced-motion support, metadata, and a sitemap. There is no build step or third-party runtime dependency.
 
 ## Preview
 
@@ -25,4 +25,4 @@ License: MIT.
 
 ## Existing project
 
-The site features the earlier [UConn Seat Tracker](https://github.com/jaykrukar/pnb-3253w-alert) as an existing project. The existing course tracker is linked, not copied into this repository. Case studies describe published code and reproduce numbers from committed reports.
+The site features the earlier [UConn Seat Tracker](https://github.com/jaykrukar/pnb-3253w-alert) as an existing project. The existing course tracker is linked, not copied into this repository. Case studies describe published code and reproduce numbers from committed reports. The task-authoring kit is an open-source learning product experiment; the site makes no sales or demand claims and links to no checkout.
