@@ -3,90 +3,135 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jay's technical portfolio: AI evaluation, Python tooling, biomedical machine learning, algorithms, and software quality.">
-  <meta name="theme-color" content="#0b1322">
-  <title>Jay — AI Evaluation & Scientific Computing</title>
+  <meta name="description" content="Jay Krukar's portfolio in software evaluation, scientific computing, biomedical data, and reliable Python tools.">
+  <meta name="theme-color" content="#101b1e">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jay Krukar — Technical Portfolio">
+  <meta property="og:description" content="A scientific lens on software evaluation, data, and reliable tools.">
+  <meta property="og:url" content="https://jaykrukar.github.io/portfolio-site/">
+  <meta name="twitter:card" content="summary">
+  <title>Jay Krukar — Technical Portfolio</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://jaykrukar.github.io/portfolio-site/">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#projects">Skip to projects</a>
-  <div class="page-glow" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="shell">
     <nav class="top-nav" aria-label="Primary navigation">
-      <a class="brand" href="#home"><span class="brand-mark">J</span> Jay <span class="muted">/ Portfolio</span></a>
+      <a class="brand" href="#home" aria-label="Jay Krukar, home"><span class="brand-mark" aria-hidden="true">J</span><span>Jay Krukar</span></a>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#background">Background</a>
+        <a href="#work">Selected work</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
+
     <header class="hero" id="home">
-      <div class="eyebrow"><span class="status-dot"></span> Building in public · AI + research + engineering</div>
-      <h1>Making complex systems <span class="accent">measurable, testable, and reliable.</span></h1>
-      <p class="hero-copy">I'm Jay — a UConn neurobiology student, undergraduate researcher, EMT, and AI tasking contractor. My UConn class-seat alert tracker is an existing project; the other repos below are new AI-assisted prototypes I am building for practice in code evaluation, Python engineering, and biomedical computing.</p>
-      <div class="cta-group">
-        <a class="button primary" href="#projects">Explore the work <span aria-hidden="true">↘</span></a>
-        <a class="button subtle" id="github-profile-link" href="https://github.com/jaykrukar">GitHub profile <span aria-hidden="true">↗</span></a>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Physiology · software · evaluation</p>
+        <h1>Making technical work <em>clear enough to trust.</em></h1>
+        <p class="lede">I’m Jay, a University of Connecticut physiology and neurobiology student, undergraduate researcher, 911 EMT, and AI tasking contractor. I’m building practical tools that make software behavior easier to test, explain, and reproduce.</p>
+        <div class="cta-group">
+          <a class="button primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+          <a class="button secondary" href="https://github.com/jaykrukar">GitHub profile <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="provenance-note">The course seat tracker is an existing deployed project. Other repositories are AI-assisted learning projects; each documents its own scope and limits.</p>
       </div>
-      <div class="capabilities" aria-label="Areas of interest">
-        <span>AI code evaluation</span><span>Python</span><span>Reproducible ML</span><span>Algorithms</span><span>Data quality</span>
-      </div>
+      <aside class="hero-note" aria-label="Working principles">
+        <p class="mono-label">HOW I WORK</p>
+        <ol>
+          <li><span>01</span> State the question</li>
+          <li><span>02</span> Make the checks independent</li>
+          <li><span>03</span> Report what the evidence says</li>
+        </ol>
+        <p class="hero-note-foot">Software should explain what it can prove — and where it stops.</p>
+      </aside>
     </header>
-    <main>
-      <section id="projects" class="section">
-        <div class="section-heading"><div><p class="overline">01 / Selected work</p><h2>Projects with tests, not just screenshots.</h2></div><p class="small-intro">The UConn tracker is an existing project. The other repositories are new AI-assisted prototypes with tests and documented limitations.</p></div>
+
+    <main id="main">
+      <section id="work" class="section work-section" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div><p class="overline">01 / Selected work</p><h2 id="work-title">Projects built around evidence.</h2></div>
+          <p class="small-intro">Small, inspectable systems with tests, reproducible examples, and limitations stated up front.</p>
+        </div>
         <div class="filters" role="group" aria-label="Filter projects">
-          <button class="filter active" data-filter="all" aria-pressed="true">All projects</button>
-          <button class="filter" data-filter="ai" aria-pressed="false">AI evaluation</button>
-          <button class="filter" data-filter="ml" aria-pressed="false">Machine learning</button>
-          <button class="filter" data-filter="systems" aria-pressed="false">Algorithms & tooling</button>
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">Everything</button>
+          <button class="filter" type="button" data-filter="evaluation" aria-pressed="false">Evaluation</button>
+          <button class="filter" type="button" data-filter="science" aria-pressed="false">Scientific computing</button>
+          <button class="filter" type="button" data-filter="tools" aria-pressed="false">Tools & algorithms</button>
         </div>
+        <p class="filter-status" id="filter-status" aria-live="polite"></p>
         <div class="project-grid">
-          <article class="project-card" data-tags="systems ai">
-            <div class="card-top"><span class="pill">01 · Existing project</span><span class="card-symbol">◉</span></div>
-            <h3>UConn Seat Tracker</h3><p>Python + Playwright checks UConn course availability and notifies my iPhone when a tracked class opens. Previously deployed with GitHub Actions and external scheduling.</p>
-            <div class="tags"><span>Python</span><span>Playwright</span><span>GitHub Actions</span><span>ntfy</span></div>
-            <a class="repo-link" href="https://github.com/jaykrukar/pnb-3253w-alert">Open existing repository ↗</a>
+          <article class="project-card featured" data-tags="evaluation tools">
+            <div class="card-top"><span class="pill">AI-assisted learning project</span><span class="card-index">01</span></div>
+            <h3>RepoEval Lab</h3>
+            <p>A Python harness for repository-style coding tasks. Independent tests reject a deliberately incomplete starter and accept a reference implementation; a second task exercises HTTP retry timing.</p>
+            <div class="tags"><span>Python</span><span>pytest</span><span>Test design</span></div>
+            <div class="card-links"><a class="repo-link" href="case-study-repoeval.html">Read the case study <span aria-hidden="true">→</span></a><a class="text-link" href="https://github.com/jaykrukar/repoeval-lab">Source <span aria-hidden="true">↗</span></a></div>
           </article>
-          <article class="project-card" data-tags="ai systems">
-            <div class="card-top"><span class="pill">02 · AI evaluation</span><span class="card-symbol">{ }</span></div>
-            <h3>RepoEval Lab</h3><p>External verifiers, candidate code execution, JSON reports, and a deliberately buggy example that the tests reject.</p>
-            <div class="tags"><span>Python</span><span>pytest</span><span>Verification</span></div>
-            <a class="repo-link" href="https://github.com/jaykrukar/repoeval-lab">Explore repository ↗</a>
+          <article class="project-card featured" data-tags="science evaluation">
+            <div class="card-top"><span class="pill">Synthetic data demonstration</span><span class="card-index">02</span></div>
+            <h3>BioSignal Lab</h3>
+            <p>A reproducible waveform pipeline with subject-aware splits, probability scoring, and uncertainty estimated by resampling held-out subjects as clusters.</p>
+            <div class="tags"><span>Python</span><span>scikit-learn</span><span>Scientific computing</span></div>
+            <div class="card-links"><a class="repo-link" href="case-study-biosignal.html">Read the case study <span aria-hidden="true">→</span></a><a class="text-link" href="https://github.com/jaykrukar/biosignal-lab">Source <span aria-hidden="true">↗</span></a></div>
           </article>
-          <article class="project-card" data-tags="ml">
-            <div class="card-top"><span class="pill">03 · Biomedical ML</span><span class="card-symbol">∿</span></div>
-            <h3>BioSignal Lab</h3><p>Fully synthetic pulse-style data, signal features, grouped train/test evaluation, and reproducible ML reports.</p>
-            <div class="tags"><span>scikit-learn</span><span>SciPy</span><span>Validation</span></div>
-            <a class="repo-link" href="https://github.com/jaykrukar/biosignal-lab">Explore repository ↗</a>
+          <article class="project-card" data-tags="tools evaluation">
+            <div class="card-top"><span class="pill">Existing deployed project</span><span class="card-index">03</span></div>
+            <h3>UConn Seat Tracker</h3>
+            <p>A scheduled browser check for a UConn course section, with transition-based phone notifications and offline parser regression tests.</p>
+            <div class="tags"><span>Python</span><span>Playwright</span><span>GitHub Actions</span></div>
+            <a class="repo-link" href="https://github.com/jaykrukar/pnb-3253w-alert">View repository <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="project-card" data-tags="systems ai">
-            <div class="card-top"><span class="pill">04 · Algorithmic systems</span><span class="card-symbol">&lt;/&gt;</span></div>
-            <h3>Algorithmic Challenges</h3><p>C++17 reference solutions paired with independent Python oracles and hundreds of reproducible differential test cases.</p>
-            <div class="tags"><span>C++17</span><span>Graph algorithms</span><span>Stress tests</span></div>
-            <a class="repo-link" href="https://github.com/jaykrukar/algorithmic-challenges">Explore repository ↗</a>
+          <article class="project-card" data-tags="tools">
+            <div class="card-top"><span class="pill">C++17 · differential testing</span><span class="card-index">04</span></div>
+            <h3>Algorithmic Challenges</h3>
+            <p>Three algorithm exercises, reference implementations, and seeded comparisons against simpler Python oracles—including exhaustive checks on small interval cases.</p>
+            <div class="tags"><span>C++17</span><span>Algorithms</span><span>Testing</span></div>
+            <a class="repo-link" href="https://github.com/jaykrukar/algorithmic-challenges">View repository <span aria-hidden="true">↗</span></a>
           </article>
-          <article class="project-card" data-tags="systems ml">
-            <div class="card-top"><span class="pill">05 · Data engineering</span><span class="card-symbol">✓</span></div>
-            <h3>QualityGate</h3><p>Dependency-free CSV validation with strict type checks, numeric bounds, duplicate detection, and actionable JSON diagnostics.</p>
-            <div class="tags"><span>Python</span><span>CLI</span><span>Data quality</span></div>
-            <a class="repo-link" href="https://github.com/jaykrukar/data-quality-cli">Explore repository ↗</a>
+          <article class="project-card" data-tags="tools science">
+            <div class="card-top"><span class="pill">Dependency-free Python CLI</span><span class="card-index">05</span></div>
+            <h3>QualityGate</h3>
+            <p>CSV validation with strict field rules, numeric cross-field comparisons, bounded issue details, and complete aggregate counts.</p>
+            <div class="tags"><span>Python</span><span>Data validation</span><span>CLI</span></div>
+            <a class="repo-link" href="https://github.com/jaykrukar/data-quality-cli">View repository <span aria-hidden="true">↗</span></a>
           </article>
         </div>
       </section>
-      <section id="background" class="section split-section">
-        <div><p class="overline">02 / Background</p><h2>A scientific lens on technical problems.</h2></div>
-        <div class="background-copy"><p>My background combines academic research in physiology and neurobiology, project-based AI tasking, and 911 emergency medical services. The common thread is disciplined evaluation, clear documentation, and working carefully when correctness matters.</p>
-          <ul class="timeline">
-            <li><span class="timeline-marker"></span><div><strong>University of Connecticut</strong><small>Physiology & Neurobiology, B.S. expected 2027; undergraduate research</small></div></li>
-            <li><span class="timeline-marker"></span><div><strong>AI tasking — Outlier & Mercor</strong><small>Approximately two years of project-based AI training work</small></div></li>
-            <li><span class="timeline-marker"></span><div><strong>911 Emergency Medical Technician</strong><small>Patient assessment, communication, and detailed documentation</small></div></li>
-          </ul>
+
+      <section id="approach" class="section approach-section" aria-labelledby="approach-title">
+        <div><p class="overline">02 / Approach</p><h2 id="approach-title">The method matters as much as the result.</h2></div>
+        <div class="approach-grid">
+          <article><span class="approach-number">A</span><h3>Test the behavior</h3><p>Use independent oracles, boundary cases, and failure cases to check whether an implementation meets its stated contract.</p></article>
+          <article><span class="approach-number">B</span><h3>Respect the data</h3><p>Keep synthetic examples labeled as synthetic. When observations share a subject, preserve that grouping during evaluation.</p></article>
+          <article><span class="approach-number">C</span><h3>Make limits visible</h3><p>Document what was measured, what was assumed, and what a small demonstration cannot establish.</p></article>
         </div>
       </section>
-      <section id="contact" class="contact-section"><p class="overline">03 / Say hello</p><h2>Interested in a project or technical conversation?</h2><p>I'm building and extending these repositories in public. Feel free to follow the work or reach out professionally.</p><a class="button primary" href="https://github.com/jaykrukar">View GitHub ↗</a></section>
+
+      <section id="about" class="section about-section" aria-labelledby="about-title">
+        <div><p class="overline">03 / Background</p><h2 id="about-title">A scientific lens on technical problems.</h2></div>
+        <div class="about-copy">
+          <p>My work spans physiology and neurobiology, LGBTQ+ health research, project-based AI training tasks, and emergency medical services. Those settings have taught me to ask what the evidence supports, communicate carefully, and treat reliable process as part of the result.</p>
+          <dl class="facts">
+            <div><dt>Study</dt><dd>Physiology & Neurobiology, B.S. · University of Connecticut · expected May 2027</dd></div>
+            <div><dt>Research</dt><dd>Undergraduate work in UConn’s SHINE Lab; previous work in the Kienzler Lab</dd></div>
+            <div><dt>AI tasking</dt><dd>Approximately two years of project-based work through Outlier and Mercor</dd></div>
+            <div><dt>Practice</dt><dd>Connecticut 911 Emergency Medical Technician</dd></div>
+          </dl>
+          <p class="provenance-note">These public repositories include AI-assisted implementation. They are learning work, not a claim of years of professional software engineering experience.</p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+        <p class="overline">04 / Contact</p><h2 id="contact-title">Follow the work as it grows.</h2>
+        <p>For project details, code, and the history behind each change, start with GitHub.</p>
+        <a class="button primary" href="https://github.com/jaykrukar">Visit my GitHub profile <span aria-hidden="true">↗</span></a>
+      </section>
     </main>
-    <footer><span>© <span id="year">2026</span> Jay · Built with HTML, CSS, and JavaScript</span><span>The UConn tracker predates this portfolio; four additional projects are new AI-assisted starters. No confidential client or patient data.</span></footer>
+    <footer><span>© <span id="year">2026</span> Jay Krukar</span><span>Built with HTML, CSS, and JavaScript · No client or patient data</span></footer>
   </div>
   <script src="app.js" defer></script>
 </body>

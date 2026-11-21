@@ -1,18 +1,29 @@
-/* Accessible category filters. The GitHub URLs are placeholders until published. */
 const buttons = [...document.querySelectorAll('.filter')];
 const projects = [...document.querySelectorAll('.project-card')];
-for (const button of buttons) {
-  button.addEventListener('click', () => {
-    const category = button.dataset.filter;
-    for (const candidate of buttons) {
-      const active = candidate === button;
-      candidate.classList.toggle('active', active);
-      candidate.setAttribute('aria-pressed', String(active));
-    }
-    for (const project of projects) {
-      const tags = (project.dataset.tags || '').split(' ');
-      project.hidden = category !== 'all' && !tags.includes(category);
-    }
-  });
+const status = document.getElementById('filter-status');
+
+function applyFilter(selected) {
+  let visible = 0;
+  for (const button of buttons) {
+    const active = button.dataset.filter === selected;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  }
+  for (const project of projects) {
+    const tags = (project.dataset.tags || '').split(/\s+/).filter(Boolean);
+    const show = selected === 'all' || tags.includes(selected);
+    project.hidden = !show;
+    if (show) visible += 1;
+  }
+  if (status) {
+    status.textContent = `${visible} project${visible === 1 ? '' : 's'} shown`;
+  }
 }
-document.getElementById('year').textContent = String(new Date().getFullYear());
+
+for (const button of buttons) {
+  button.addEventListener('click', () => applyFilter(button.dataset.filter));
+}
+
+applyFilter('all');
+const year = document.getElementById('year');
+if (year) year.textContent = String(new Date().getFullYear());
