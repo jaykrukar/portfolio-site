@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BioSignal Lab case study: a reproducible synthetic waveform pipeline with subject-aware evaluation and uncertainty reporting.">
+  <meta name="theme-color" content="#101b1e">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="BioSignal Lab — Jay Krukar">
+  <meta property="og:description" content="A synthetic signal pipeline demonstrating subject-aware splits and cluster bootstrap intervals.">
+  <title>BioSignal Lab — Jay Krukar</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://jaykrukar.github.io/portfolio-site/case-study-biosignal.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">J</span><span>Jay Krukar</span></a>
+      <div class="nav-links"><a href="index.html#work">Selected work</a><a href="case-study-repoeval.html">RepoEval case study</a><a href="https://github.com/jaykrukar/biosignal-lab">Source ↗</a></div>
+    </nav>
+    <header class="case-hero">
+      <p class="overline">Case study / scientific computing</p>
+      <h1>BioSignal <em>Lab</em></h1>
+      <p class="lede">A seeded machine-learning exercise using deliberately synthetic pulse-like waveforms to demonstrate feature extraction, subject-aware splits, and uncertainty reporting.</p>
+      <div class="case-meta"><span>Python · NumPy · SciPy · scikit-learn</span><span>Synthetic dataset only</span><span>Published on GitHub</span></div>
+      <p class="scope-banner"><strong>Scope:</strong> These are artificial signals, not real ECG or EEG recordings. This project is not a medical device, clinical model, or validation study.</p>
+    </header>
+    <main id="main" class="case-main">
+      <section class="case-section">
+        <p class="overline">01 / Research question</p>
+        <h2>Can a reproducible demo exercise the right evaluation habits?</h2>
+        <p>The repository is built to test an analysis workflow, not a biomedical hypothesis. It generates labeled simulated subjects, extracts simple waveform and peak features, trains a modest classifier, and tests that segments from the same synthetic subject do not cross the train/test boundary.</p>
+      </section>
+      <section class="case-section">
+        <p class="overline">02 / Pipeline</p>
+        <h2>Keep the grouping through evaluation.</h2>
+        <div class="flow" role="img" aria-label="Machine-learning flow: seeded synthetic signals retain subject IDs through feature extraction, group-aware split, and held-out metrics.">
+          <div class="flow-step"><span>01</span><strong>Synthetic signals</strong><small>Seed + subject IDs</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>02</span><strong>Features</strong><small>Statistics + peak timing</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>03</span><strong>Group split</strong><small>Subjects kept apart</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>04</span><strong>Evaluation</strong><small>Metrics + subject bootstrap</small></div>
+        </div>
+        <ul class="case-list">
+          <li>Seeded generation makes the example repeatable.</li>
+          <li>GroupShuffleSplit assigns whole simulated subjects to one side of the split.</li>
+          <li>The Brier score measures probability prediction error; a lower value alone does not prove better calibration.</li>
+          <li>Bootstrap intervals resample held-out subjects as clusters so each subject’s segments stay together.</li>
+        </ul>
+        <p class="source-note">Method references: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupShuffleSplit.html">GroupShuffleSplit documentation</a> and <a href="https://scikit-learn.org/stable/modules/calibration.html">scikit-learn calibration guide</a>.</p>
+      </section>
+      <section class="case-section">
+        <p class="overline">03 / Seeded example result</p>
+        <h2>One reproducible run, clearly labeled.</h2>
+        <p>With seed 17, the generated example contains 360 synthetic segments from 30 simulated subjects. The held-out split contains 96 segments from 8 subjects and has zero subject overlap with training.</p>
+        <div class="metrics-grid">
+          <div><span class="metric-number">0.9792</span><span class="metric-label">synthetic held-out accuracy</span></div>
+          <div><span class="metric-number">0.9787</span><span class="metric-label">synthetic macro F1</span></div>
+          <div><span class="metric-number">0.0208</span><span class="metric-label">synthetic Brier score</span></div>
+        </div>
+        <div class="result-strip"><div><span class="result-value">[0.9479, 1.0000]</span><span class="result-label">subject-bootstrap accuracy interval</span></div><div><span class="result-value">[0.9475, 1.0000]</span><span class="result-label">subject-bootstrap macro-F1 interval</span></div></div>
+        <p class="scope-banner"><strong>Interpretation:</strong> All figures describe one run on generated data. The bootstrap uses only eight held-out synthetic subjects, so its intervals are illustrative software outputs—not clinical uncertainty estimates.</p>
+        <p class="source-note">These values are reproduced in <a href="https://github.com/jaykrukar/biosignal-lab/blob/main/docs/demo_report.json">the committed example report</a>. <a href="https://github.com/jaykrukar/biosignal-lab/actions">View CI runs ↗</a></p>
+      </section>
+      <section class="case-section">
+        <p class="overline">04 / Limitations and next steps</p>
+        <h2>A pathway to real data needs provenance first.</h2>
+        <p>The generator intentionally simplifies physiology and makes its labels from its own rules. It cannot represent clinical populations, acquisition artifacts, or real diagnostic uncertainty. No real dataset is bundled, and no clinical claim is made.</p>
+        <p>A future real-data study would first need to verify the dataset’s access terms, licensing, cohort and outcome definitions, participant grouping, and evaluation protocol. Only then would it make sense to choose baselines and report results.</p>
+      </section>
+      <div class="case-footer-links"><a class="button secondary" href="index.html#work">← Back to selected work</a><a class="button primary" href="https://github.com/jaykrukar/biosignal-lab">Explore the source <span aria-hidden="true">↗</span></a></div>
+    </main>
+    <footer><span>© <span id="year">2026</span> Jay Krukar</span><span>AI-assisted learning project · Synthetic data only</span></footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

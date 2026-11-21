@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RepoEval Lab case study: a Python evaluation harness with external verifiers, timeout reporting, and independent coding tasks.">
+  <meta name="theme-color" content="#101b1e">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RepoEval Lab — Jay Krukar">
+  <meta property="og:description" content="An inspectable coding-task verifier with independent tests and explicit limits.">
+  <title>RepoEval Lab — Jay Krukar</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://jaykrukar.github.io/portfolio-site/case-study-repoeval.html">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">J</span><span>Jay Krukar</span></a>
+      <div class="nav-links"><a href="index.html#work">Selected work</a><a href="case-study-biosignal.html">BioSignal case study</a><a href="https://github.com/jaykrukar/repoeval-lab">Source ↗</a></div>
+    </nav>
+    <header class="case-hero">
+      <p class="overline">Case study / AI evaluation</p>
+      <h1>RepoEval <em>Lab</em></h1>
+      <p class="lede">A small Python harness for repository-style coding tasks. The core question: can an external behavioral verifier distinguish a correct implementation from a plausible but broken one?</p>
+      <div class="case-meta"><span>Python · pytest</span><span>AI-assisted learning project</span><span>Published on GitHub</span></div>
+    </header>
+    <main id="main" class="case-main">
+      <section class="case-section">
+        <p class="overline">01 / The problem</p>
+        <h2>A green exit code is not enough.</h2>
+        <p>A coding-task evaluation needs a clear contract, tests separate from the candidate solution, and a report that tells an evaluator what actually ran. A verifier that silently accepts an all-skipped suite can produce a misleading pass, while inherited local pytest options can change results between machines.</p>
+      </section>
+      <section class="case-section">
+        <p class="overline">02 / Execution path</p>
+        <h2>Candidate, verifier, report.</h2>
+        <div class="flow" role="img" aria-label="Evaluation flow: task manifest and candidate directory enter a pytest subprocess, which produces a JUnit result and structured JSON report.">
+          <div class="flow-step"><span>01</span><strong>Manifest</strong><small>Task ID, test path, timeout</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>02</span><strong>Candidate</strong><small>Source placed on import path</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>03</span><strong>Verifier</strong><small>External pytest suite</small></div><span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-step"><span>04</span><strong>Report</strong><small>JUnit counts + JSON result</small></div>
+        </div>
+        <ul class="case-list">
+          <li>Manifest paths are resolved and checked to stay inside the task directory.</li>
+          <li>All-skipped tests cannot count as a passing submission.</li>
+          <li>Timeouts retain any captured output and record elapsed wall-clock time.</li>
+          <li>Third-party pytest auto-loading and inherited pytest option overrides are disabled for task runs.</li>
+        </ul>
+      </section>
+      <section class="case-section">
+        <p class="overline">03 / Demonstration</p>
+        <h2>Two task contracts, independent checks.</h2>
+        <div class="case-grid">
+          <article class="case-card"><h3>Atomic order reservation</h3><p>Checks input immutability, integer-cent totals, validation failures, and no partial inventory mutation. Tests accept behavior, not one implementation.</p><a class="repo-link" href="https://github.com/jaykrukar/repoeval-lab/tree/main/examples/order-reservation">Inspect task ↗</a></article>
+          <article class="case-card"><h3>HTTP Retry-After parsing</h3><p>Checks delay-seconds, HTTP-date forms, timezone handling, rounding at a boundary, past dates, and malformed values.</p><p class="source-note">The field formats follow <a href="https://www.rfc-editor.org/rfc/rfc9110.html#section-10.2.3">RFC 9110 §10.2.3</a>.</p><a class="repo-link" href="https://github.com/jaykrukar/repoeval-lab/tree/main/examples/retry-after">Inspect task ↗</a></article>
+        </div>
+        <div class="result-strip"><div><span class="result-value">20 / 20</span><span class="result-label">retry-after reference cases passed</span></div><div><span class="result-value">20 / 20</span><span class="result-label">starter cases rejected</span></div><div><span class="result-value">9 passed</span><span class="result-label">harness unit tests</span></div></div>
+        <p class="source-note">Verified locally and by the repository’s GitHub Actions run. <a href="https://github.com/jaykrukar/repoeval-lab/actions">View workflow runs ↗</a></p>
+      </section>
+      <section class="case-section">
+        <p class="overline">04 / Decisions and limits</p>
+        <h2>Useful evaluation is not secure execution.</h2>
+        <p>The runner launches candidate code in a subprocess so a time limit and result capture are possible. It does <strong>not</strong> provide a security sandbox: a timeout is not a filesystem, network, or resource boundary. Only trusted submissions should run on an ordinary host; untrusted tasks need properly isolated execution infrastructure.</p>
+        <p>The current runner is Python/pytest-specific. These example tests establish behavior for the tested cases, not general correctness or model capability. Mutation scoring, container isolation, broader task coverage, and richer resource metrics remain open work.</p>
+      </section>
+      <div class="case-footer-links"><a class="button secondary" href="index.html#work">← Back to selected work</a><a class="button primary" href="https://github.com/jaykrukar/repoeval-lab">Explore the source <span aria-hidden="true">↗</span></a></div>
+    </main>
+    <footer><span>© <span id="year">2026</span> Jay Krukar</span><span>AI-assisted learning project · Limitations are part of the documentation</span></footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
