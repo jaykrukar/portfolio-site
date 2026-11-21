@@ -50,13 +50,14 @@
       </section>
       <section class="case-section">
         <p class="overline">03 / Demonstration</p>
-        <h2>Two task contracts, independent checks.</h2>
+        <h2>Three small contracts, independent checks.</h2>
         <div class="case-grid">
           <article class="case-card"><h3>Atomic order reservation</h3><p>Checks input immutability, integer-cent totals, validation failures, and no partial inventory mutation. Tests accept behavior, not one implementation.</p><a class="repo-link" href="https://github.com/jaykrukar/repoeval-lab/tree/main/examples/order-reservation">Inspect task ↗</a></article>
           <article class="case-card"><h3>HTTP Retry-After parsing</h3><p>Checks delay-seconds, HTTP-date forms, timezone handling, rounding at a boundary, past dates, and malformed values.</p><p class="source-note">The field formats follow <a href="https://www.rfc-editor.org/rfc/rfc9110.html#section-10.2.3">RFC 9110 §10.2.3</a>.</p><a class="repo-link" href="https://github.com/jaykrukar/repoeval-lab/tree/main/examples/retry-after">Inspect task ↗</a></article>
+          <article class="case-card"><h3>Tag normalization</h3><p>A complete authoring example with an explicit contract, starter, reference, and 18 parameterized verifier cases. The known starter is rejected on 10 cases.</p><a class="repo-link" href="task-authoring-kit.html">Read the kit case study ↗</a></article>
         </div>
-        <div class="result-strip"><div><span class="result-value">20 / 20</span><span class="result-label">retry-after reference cases passed</span></div><div><span class="result-value">20 / 20</span><span class="result-label">starter cases rejected</span></div><div><span class="result-value">9 passed</span><span class="result-label">harness unit tests</span></div></div>
-        <p class="source-note">Verified locally and by the repository’s GitHub Actions run. <a href="https://github.com/jaykrukar/repoeval-lab/actions">View workflow runs ↗</a></p>
+        <div class="result-strip"><div><span class="result-value">20 / 20</span><span class="result-label">retry-after reference cases passed</span></div><div><span class="result-value">20 / 20</span><span class="result-label">retry-after starter cases rejected</span></div><div><span class="result-value">21 passed</span><span class="result-label">repository tests, including task-kit checks</span></div></div>
+        <p class="source-note">The RepoEval test suite passed locally and in the GitHub Actions run for the merged kit. The tag example reference passed 18/18; the starter failed 10/18. <a href="https://github.com/jaykrukar/repoeval-lab/actions">View workflow runs ↗</a></p>
       </section>
       <section class="case-section">
         <p class="overline">04 / Decisions and limits</p>
